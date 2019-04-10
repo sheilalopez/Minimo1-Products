@@ -4,10 +4,10 @@ import java.util.LinkedList;
 
 public class Pedido {
     private User user;
-    private LinkedList<Prodcuto> productos;
+    private LinkedList<Producto> productos;
 
     public void Pedido(){
-        this.productos = new LinkedList<Prodcuto>();
+        this.productos = new LinkedList<Producto>();
 
     }
 
@@ -24,11 +24,11 @@ public class Pedido {
         this.user = user;
     }
 
-    public LinkedList<Prodcuto> getProductos() {
+    public LinkedList<Producto> getProductos() {
         return productos;
     }
 
-    public void setProductos(LinkedList<Prodcuto> productos) {
+    public void setProductos(LinkedList<Producto> productos) {
         this.productos = productos;
     }
 

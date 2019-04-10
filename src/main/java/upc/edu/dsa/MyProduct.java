@@ -1,6 +1,7 @@
 package upc.edu.dsa;
 
 import java.nio.file.attribute.UserPrincipalNotFoundException;
+import java.util.HashMap;
 import java.util.List;
 
 public interface MyProduct {
@@ -13,7 +14,7 @@ public interface MyProduct {
 
     void addUser(String user);
     void addProducto(Producto p);
-    HashMap<String, Usuario> allUsers();
+    HashMap<String, User> allUsers();
     int size();
-    public
+
 }
