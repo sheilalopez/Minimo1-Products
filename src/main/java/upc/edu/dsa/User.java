@@ -9,6 +9,7 @@ public class User {
     private LinkedList<Pedido> pedidos;
 
     public User (){
+        this.pedidos = new LinkedList<Pedido>();
 
     }
 
