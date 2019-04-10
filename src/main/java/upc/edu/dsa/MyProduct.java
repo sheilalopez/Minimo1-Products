@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface MyProduct {
-    public List<Producto> ProductosOrdenadosPorPrecio (int idProducto) throws ProductoNotFoundException;
+    public List<Producto> ProductosOrdenadosPorPrecio () throws ProductoNotFoundException;
     public List<Pedido> PedidosOrdenados (int idPedido) throws PedidoNotFoundException;
     public List<Producto> ProductosOrdenadosPorVenta (int idProducto ) throws ProductoNotFoundException;
     Pedido serveAnOrder();
