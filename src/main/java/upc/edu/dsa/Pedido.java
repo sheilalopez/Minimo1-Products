@@ -1,13 +1,17 @@
 package upc.edu.dsa;
 
+import sun.awt.image.ImageWatched;
+
 import java.util.LinkedList;
+import java.util.List;
 
 public class Pedido {
     private User user;
-    private LinkedList<Producto> productos;
+    LinkedList<LProducto> productos;
+
 
     public void Pedido(){
-        this.productos = new LinkedList<Producto>();
+        this.productos = new LinkedList<LProducto>();
 
     }
 
@@ -24,11 +28,15 @@ public class Pedido {
         this.user = user;
     }
 
-    public LinkedList<Producto> getProductos() {
+    public LinkedList<LProducto> getProductos() {
         return productos;
     }
 
-    public void setProductos(LinkedList<Producto> productos) {
+
+
+
+
+    public void setProductos(LinkedList<LProducto> productos) {
         this.productos = productos;
     }
 

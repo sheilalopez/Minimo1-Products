@@ -1,6 +1,7 @@
 package upc.edu.dsa;
 
 import org.apache.log4j.Logger;
+import sun.awt.image.ImageWatched;
 
 import java.util.*;
 
@@ -17,6 +18,7 @@ public class MyProductImplementation implements MyProduct{
        productos = new LinkedList<>();
         pedidos = new LinkedList<>();
         users = new HashMap<>();
+
     }
     public static MyProduct getInstance(){
         if(instance==null) instance = new MyProductImplementation();
@@ -68,23 +70,36 @@ public class MyProductImplementation implements MyProduct{
         return productos;
     }
 
-    @Override
-    public Pedido serveAnOrder() {
-        return null;
+
+
+   @Override
+  public Pedido serveAnOrder() {
+
+        Pedido p = this.pedidos.pop();
+        log.info("Order served: " +p);
+        proces(p);
+        User usuario = p.getUser();
+        usuario.addPedido(p);
+        return p;
     }
 
-  /*  @Override
-  public Pedido serveAnOrder() {
-        //si servimos un pedido, tenemos que eliminarlo de la lista de pedidos "pendientes"
-        Pedido p = this.pedidos.pop(); //que hace exactamente el pop? es para listas solamente?
-        log.info("Order served: " +p); //supongo que coge el último pedido de la lista
-        procces(p);
+    private void proces(Pedido p) {
+        LinkedList <LProducto> l  = p.getProductos();
+        Producto producto;
+        for (LProducto lp : l){
+            producto = this.getProducto(lp.producto);
+            producto.addVentas(lp.c);
+            log.info("Ventas de el producto: " + producto.getVentas());
+
+
+        }
 
 
 
-    }*/
 
-    private void procces(Pedido p) {
+
+
+
     }
 
     private Producto getProducto(String producto) {
