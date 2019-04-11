@@ -9,15 +9,18 @@ public class MyProductImplementation implements MyProduct{
 
     //Singletone
     private static MyProductImplementation instance;
-    private List<Producto> productos;
-    private int numProductos;
+    private LinkedList<Producto> productos;
     private LinkedList<Pedido> pedidos;
     private HashMap<String, User> users;
     //constructor privado
     private MyProductImplementation(){
-        productos = new LinkedList<>();
+       productos = new LinkedList<>();
         pedidos = new LinkedList<>();
         users = new HashMap<>();
+    }
+    public static MyProduct getInstance(){
+        if(instance==null) instance = new MyProductImplementation();
+        return instance;
     }
     @Override
     public List<Producto> ProductosOrdenadosPorPrecio() throws ProductoNotFoundException {
@@ -66,7 +69,12 @@ public class MyProductImplementation implements MyProduct{
     }
 
     @Override
-   public Pedido serveAnOrder() {
+    public Pedido serveAnOrder() {
+        return null;
+    }
+
+  /*  @Override
+  public Pedido serveAnOrder() {
         //si servimos un pedido, tenemos que eliminarlo de la lista de pedidos "pendientes"
         Pedido p = this.pedidos.pop(); //que hace exactamente el pop? es para listas solamente?
         log.info("Order served: " +p); //supongo que coge el último pedido de la lista
@@ -74,7 +82,7 @@ public class MyProductImplementation implements MyProduct{
 
 
 
-    }
+    }*/
 
     private void procces(Pedido p) {
     }
@@ -115,8 +123,9 @@ public class MyProductImplementation implements MyProduct{
     }
 
     @Override
-    public void addProducto(Producto p) {
-        this.productos.add(p);
+    public void addProducto (String nombreProducto, double precio) {
+     Producto p = new Producto(nombreProducto, precio);
+     this.productos.add(p);
 
     }
 
@@ -128,9 +137,24 @@ public class MyProductImplementation implements MyProduct{
         return ret;
     }
 
+    public List<Producto> allProducts(){
+        List<Producto> ret = new ArrayList<>();
+        ret.addAll(this.productos);
+
+        return ret;
+    }
+
     @Override
     public int size() {
         log.info("Tamaño: " + this.productos.size());
         return this.productos.size();
+    }
+    @Override
+    public void clear() {
+        instance = null;
+        this.productos= null;
+        this.pedidos = null;
+        this.users = null;
+        log.info("Data cleared");
     }
 }
