@@ -11,12 +11,12 @@ public class Pedido {
 
 
     public void Pedido(){
-        this.productos = new LinkedList<LProducto>();
+        this.productos = new LinkedList<>();
 
     }
 
-    public Pedido(User user) {
-        this.user = user;
+
+    public Pedido(List<LProducto> productoss) {
         this.productos = productos;
     }
 
@@ -28,16 +28,12 @@ public class Pedido {
         this.user = user;
     }
 
+
     public LinkedList<LProducto> getProductos() {
         return productos;
     }
 
-
-
-
-
     public void setProductos(LinkedList<LProducto> productos) {
         this.productos = productos;
     }
-
 }
