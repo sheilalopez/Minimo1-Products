@@ -17,6 +17,7 @@ public class Pedido {
 
 
     public Pedido(List<LProducto> productoss) {
+
         this.productos = productos;
     }
 
